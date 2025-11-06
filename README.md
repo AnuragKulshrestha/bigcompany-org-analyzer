@@ -8,6 +8,10 @@ This is a complete Maven project (Java 17) that analyzes a CSV of employees and 
 Requires JDK 17 and Maven.
 
 ```bash
+- JDK17 and Apache Maven 3.9.6 (might work on older or newer versions too) must be installed on the system. 
+- Extract zip or go to cloned folder. 
+- Try mvn --version and java --version and verify java and maven version
+
 mvn clean package
 ```
 
