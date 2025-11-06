@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+  <style>
+    .pkg { fill:#f2f6fb; stroke:#1f4e79; stroke-width:1.2; }
+    .cls { fill:#fff; stroke:#333; stroke-width:1; }
+    .title { font: bold 12px sans-serif; }
+    .field { font: 11px sans-serif; }
+  </style>
+  <rect x="20" y="10" width="860" height="380" class="pkg"/>
+  <text x="32" y="30" class="title">com.bigcompany.analyzer</text>
+
+  <!-- App -->
+  <rect x="40" y="50" width="200" height="70" class="cls"/><text x="50" y="70" class="title">App</text>
+  <text x="50" y="90" class="field">+ main(String[] args): void</text>
+
+  <!-- CsvEmployeeRepository -->
+  <rect x="270" y="50" width="240" height="90" class="cls"/><text x="280" y="70" class="title">CsvEmployeeRepository</text>
+  <text x="280" y="92" class="field">- maxFileSizeBytes: long</text>
+  <text x="280" y="110" class="field">+ load(Path): List&lt;Employee&gt;</text>
+
+  <!-- Employee -->
+  <rect x="40" y="150" width="220" height="110" class="cls"/><text x="50" y="170" class="title">Employee (record)</text>
+  <text x="50" y="190" class="field">+ id: String</text>
+  <text x="50" y="205" class="field">+ firstName: String</text>
+  <text x="50" y="220" class="field">+ lastName: String</text>
+  <text x="50" y="235" class="field">+ salary: BigDecimal</text>
+  <text x="50" y="250" class="field">+ managerId: Optional&lt;String&gt;</text>
+
+  <!-- OrgAnalyzer -->
+  <rect x="320" y="170" width="260" height="140" class="cls"/><text x="330" y="190" class="title">OrgAnalyzer</text>
+  <text x="330" y="212" class="field">- policy: PolicyConfig</text>
+  <text x="330" y="228" class="field">+ analyzeSalaryCompliance(...): List&lt;SalaryViolation&gt;</text>
+  <text x="330" y="244" class="field">+ analyzeReportingDepth(...): List&lt;ReportingViolation&gt;</text>
+
+  <!-- PolicyConfig -->
+  <rect x="620" y="50" width="220" height="90" class="cls"/><text x="630" y="70" class="title">PolicyConfig</text>
+  <text x="630" y="92" class="field">- minMultiplier: BigDecimal</text>
+  <text x="630" y="110" class="field">- maxMultiplier: BigDecimal</text>
+  <text x="630" y="128" class="field">- maxReportingDepth: int</text>
+
+  <!-- Relationships (simple lines) -->
+  <line x1="230" y1="85" x2="270" y2="85" stroke="#333" stroke-width="1"/><polygon points="268,83 268,87 275,85" fill="#333"/>
+  <line x1="160" y1="160" x2="160" y2="150" stroke="#333" stroke-width="1"/>
+  <line x1="380" y1="150" x2="320" y2="150" stroke="#333" stroke-width="1"/>
+</svg>

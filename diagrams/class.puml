@@ -1,0 +1,59 @@
+@startuml
+package com.bigcompany.analyzer {
+  package app {
+    class App {
+      + main(String[] args): void
+    }
+  }
+  package repo {
+    class CsvEmployeeRepository {
+      - maxFileSizeBytes: long
+      + CsvEmployeeRepository(long)
+      + load(Path): List<Employee>
+    }
+  }
+  package model {
+    class Employee <<record>> {
+      + id: String
+      + firstName: String
+      + lastName: String
+      + salary: BigDecimal
+      + managerId: Optional<String>
+    }
+  }
+  package service {
+    class OrgAnalyzer {
+      - policy: PolicyConfig
+      + OrgAnalyzer(PolicyConfig)
+      + analyzeSalaryCompliance(Collection<Employee>): List<SalaryViolation>
+      + analyzeReportingDepth(Collection<Employee>): List<ReportingViolation>
+    }
+    class SalaryViolation {
+      + manager: Employee
+      + averageSubordinateSalary: BigDecimal
+      + expectedMin: BigDecimal
+      + expectedMax: BigDecimal
+      + diff: BigDecimal
+      + underpaid: boolean
+    }
+    class ReportingViolation {
+      + employee: Employee
+      + chainLength: int
+      + exceedBy: int
+    }
+  }
+  package policy {
+    class PolicyConfig {
+      - minMultiplier: BigDecimal
+      - maxMultiplier: BigDecimal
+      - maxReportingDepth: int
+      + loadFrom(Path): PolicyConfig
+    }
+  }
+  App --> CsvEmployeeRepository
+  App --> OrgAnalyzer
+  App --> PolicyConfig
+  OrgAnalyzer --> Employee
+  CsvEmployeeRepository --> Employee
+}
+@enduml

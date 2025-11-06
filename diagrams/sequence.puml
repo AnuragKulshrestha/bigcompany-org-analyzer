@@ -1,0 +1,21 @@
+@startuml
+actor User as U
+participant "App
+(com.bigcompany.analyzer.app)" as App
+participant "CsvEmployeeRepository
+(com.bigcompany.analyzer.repo)" as Repo
+participant "OrgAnalyzer
+(com.bigcompany.analyzer.service)" as Analyzer
+participant "PolicyConfig
+(com.bigcompany.analyzer.policy)" as Policy
+
+U -> App: run(filePath)
+App -> Policy: loadFrom(policy.properties)
+Policy --> App: PolicyConfig
+App -> Repo: load(csvPath)
+Repo --> App: List<Employee>
+App -> Analyzer: analyzeSalaryCompliance(employees)
+and analyzeReportingDepth(employees)
+Analyzer --> App: SalaryReport + ReportingReport
+App -> U: print report
+@enduml

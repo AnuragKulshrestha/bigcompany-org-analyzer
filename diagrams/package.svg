@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="260" viewBox="0 0 700 260">
+  <style>
+    .pkg { fill:#fff7e6; stroke:#c67b00; stroke-width:1; }
+    .box { fill:#ffffff; stroke:#555; }
+    .title { font: bold 13px sans-serif; }
+    text { font: 12px sans-serif; }
+  </style>
+  <rect x="10" y="10" width="680" height="240" class="pkg"/>
+  <text x="24" y="34" class="title">com.bigcompany.analyzer</text>
+
+  <rect x="30" y="50" width="200" height="60" class="box"/><text x="40" y="72">model.Employee</text>
+  <rect x="250" y="50" width="200" height="60" class="box"/><text x="260" y="72">repo.CsvEmployeeRepository</text>
+  <rect x="470" y="50" width="200" height="60" class="box"/><text x="480" y="72">policy.PolicyConfig</text>
+
+  <rect x="30" y="130" width="200" height="80" class="box"/><text x="40" y="152">service.OrgAnalyzer</text>
+  <rect x="250" y="130" width="200" height="80" class="box"/><text x="260" y="152">service.SalaryViolation</text>
+  <rect x="470" y="130" width="200" height="80" class="box"/><text x="480" y="152">app.App</text>
+</svg>

@@ -1,0 +1,26 @@
+@startuml
+package "com.bigcompany.analyzer" {
+  package model {
+    class Employee
+  }
+  package repo {
+    class CsvEmployeeRepository
+  }
+  package service {
+    class OrgAnalyzer
+    class SalaryViolation
+    class ReportingViolation
+  }
+  package policy {
+    class PolicyConfig
+  }
+  package app {
+    class App
+  }
+  app.App --> repo.CsvEmployeeRepository
+  app.App --> service.OrgAnalyzer
+  app.App --> policy.PolicyConfig
+  service.OrgAnalyzer --> model.Employee
+  repo.CsvEmployeeRepository --> model.Employee
+}
+@enduml
